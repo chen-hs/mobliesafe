@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.itcast.mobliesafe">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".AppManagerActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".CacheClearListActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".LostFindActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SecurityPhoneActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SetUp1Activity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SetUp2Activity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SetUp3Activity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SetUp4Activity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ContactSelectActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <!-- 手机防盗 -->
+
+        <!-- 通讯卫士 -->
+        <!-- 软件管家 -->
+        <!-- 高级工具 -->
+        <!-- 设置中心 -->
+
+        <!-- 病毒查杀 -->
+
+
+        <!-- 进程管理 -->
+
+
+        <!-- 缓存清理 -->
+        <!-- 流量监控 -->
+
+
+        <!-- Reciver -->
+
+        <!-- 设备超级管理员广播接收者 -->
+
+        <!-- Reciver -->
+        <receiver android:name=".reciever.SmsLostFindReciver" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Service -->
+        <service
+            android:name=".service.GPSLocationService"
+            android:persistent="true" >
+        </service>
+
+        <!-- 锁屏自动清理进程 -->
+
+        <provider
+            android:authorities="cn.itcast.mobliesafe.fileprovider"
+            android:name="android.support.v4.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+    </application>
+
+</manifest>
